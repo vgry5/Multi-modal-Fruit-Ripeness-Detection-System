@@ -54,7 +54,10 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Add functionality for the button
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResultPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
@@ -67,6 +70,24 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ResultPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Result Page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(
+          'This is the result page. Add your content here.',
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );
