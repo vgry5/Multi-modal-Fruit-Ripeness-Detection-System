@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,17 +14,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fruit Ripeness Detection System'),
+        title: const Text('Fruit Ripeness Detection System'),
         centerTitle: true,
       ),
       body: Center(
@@ -31,11 +35,11 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Card(
               elevation: 5,
-              margin: EdgeInsets.all(20),
+              margin: const EdgeInsets.all(20),
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 width: 300,
-                child: Column(
+                child: const Column(
                   children: [
                     Text(
                       'Welcome to the',
@@ -51,7 +55,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -62,9 +66,9 @@ class HomePage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
                 onPrimary: Colors.white,
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
               ),
-              child: Text(
+              child: const Text(
                 'Get Started',
                 style: TextStyle(fontSize: 18),
               ),
@@ -77,14 +81,16 @@ class HomePage extends StatelessWidget {
 }
 
 class ResultPage extends StatelessWidget {
+  const ResultPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Result Page'),
+        title: const Text('Result Page'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'This is the result page. Add your content here.',
           style: TextStyle(fontSize: 20),
