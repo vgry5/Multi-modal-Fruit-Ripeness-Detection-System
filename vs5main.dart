@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
     );
   }
+}
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -48,4 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  RaisedButton({required Null Function() onPressed, required Text child}) {}
 }
