@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.red,
                 onPrimary: Colors.white,
                 padding: const EdgeInsets.all(15),
               ),
@@ -82,54 +83,20 @@ class HomePage extends StatelessWidget {
 }
 
 class ResultPage extends StatelessWidget {
-  
+  const ResultPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            
-           
-          },
-        ),
-        backgroundColor: const Color.fromARGB(255, 62, 119, 167),
+        centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: Image.asset(
-              'assets/fruits.jpg',
-              height: 300.0,
-              width: 300.0,
-            ),
-          ),
-          SizedBox(height: 20.0),
-          OutlinedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ResultPage()),
-              );
-            },
-            child: Text(
-              'Get Started',
-              style: TextStyle(fontSize: 20.0),
-            ),
-            style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-            ),
-          ),
-        ],
+      body: const Center(
+        child: Text(
+          'This is the result page. Add your content here.',
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
   }
 }
-
