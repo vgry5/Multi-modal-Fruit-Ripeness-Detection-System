@@ -16,13 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +82,7 @@ class HomePage extends StatelessWidget {
 }
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
