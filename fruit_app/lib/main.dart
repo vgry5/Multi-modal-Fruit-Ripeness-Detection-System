@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.red,
                 onPrimary: Colors.white,
                 padding: const EdgeInsets.all(15),
               ),
