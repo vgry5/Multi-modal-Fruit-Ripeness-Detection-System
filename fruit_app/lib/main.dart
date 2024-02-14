@@ -88,7 +88,6 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Heritage Decode', style: TextStyle(color: Colors.white)),
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
