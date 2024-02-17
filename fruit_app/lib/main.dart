@@ -127,6 +127,12 @@ class _SecondPageState extends State<SecondPage> {
     }
   }
 
+  void _clearSelectedImage() {
+    setState(() {
+      _selectedImage = null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,7 +145,7 @@ class _SecondPageState extends State<SecondPage> {
           children: <Widget>[
             Text(
               'Add your fruit here...',
-              style:TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             _selectedImage != null
@@ -176,7 +182,10 @@ class _SecondPageState extends State<SecondPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ThirdPage(selectedImage: _selectedImage!)),
-                  );
+                  ).then((value) {
+                    // Call _clearSelectedImage when returning from the ThirdPage
+                    _clearSelectedImage();
+                  });
                 } else {
                   // Handle case when no image is selected
                 }

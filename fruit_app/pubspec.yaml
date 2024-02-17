@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/fruits.jpg
     - assets/mk.jpg
+    - assets/camera.jpeg
 
   
 
