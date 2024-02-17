@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
         centerTitle: true,
       ),
       body: Stack(
@@ -132,7 +131,6 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Result Page'),
         centerTitle: true,
       ),
       body: Center(
@@ -140,8 +138,8 @@ class _SecondPageState extends State<SecondPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'This is the result page. Add your content here.',
-              style: TextStyle(fontSize: 20),
+              'Add your fruit here...',
+              style:TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             _selectedImage != null
@@ -159,14 +157,14 @@ class _SecondPageState extends State<SecondPage> {
                 IconButton(
                   onPressed: _getImageFromCamera,
                   icon: Icon(Icons.camera),
-                  iconSize: 40,
+                  iconSize: 50,
                   color: Colors.blue,
                 ),
                 const SizedBox(width: 20),
                 IconButton(
                   onPressed: _getImageFromGallery,
                   icon: Icon(Icons.image),
-                  iconSize: 40,
+                  iconSize: 50,
                   color: Colors.green,
                 ),
               ],
