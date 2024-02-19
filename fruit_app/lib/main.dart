@@ -34,14 +34,14 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           // Background Image
           Image.asset(
-            'assets/fruits.jpg', // Replace with the actual path to your image
+            'assets/fruits.jpg', 
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
           // Background Container with Opacity
           Container(
-            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), // Set your desired color and opacity
+            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
             width: double.infinity,
             height: double.infinity,
           ),
@@ -170,14 +170,14 @@ class _SecondPageState extends State<SecondPage> {
                   onPressed: _getImageFromCamera,
                   icon: Icon(Icons.camera),
                   iconSize: 50,
-                  color: Colors.blue,
+                  color: const Color.fromARGB(255, 0, 0, 0),
                 ),
                 const SizedBox(width: 20),
                 IconButton(
                   onPressed: _getImageFromGallery,
                   icon: Icon(Icons.image),
                   iconSize: 50,
-                  color: Colors.green,
+                  color: const Color.fromARGB(255, 0, 0, 0),
                 ),
               ],
             ),
@@ -240,7 +240,7 @@ class ThirdPage extends StatelessWidget {
               height: 200,
               fit: BoxFit.cover,
             ),
-            // Add your prediction logic or content here
+            
           ],
         ),
       ),
