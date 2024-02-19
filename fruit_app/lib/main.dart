@@ -145,27 +145,41 @@ class _SecondPageState extends State<SecondPage> {
         children: <Widget>[
           // Background Image
           Image.asset(
-            'assets/background.jpg', // Replace with the actual path to your background image
+            'assets/background.jpg', 
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
           // Background Container with Opacity
           Container(
-            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), // Set your desired color and opacity
+            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
             width: double.infinity,
             height: double.infinity,
           ),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start, // Align to the top of the screen
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'Select your fruit type',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                const SizedBox(height: 50), // Add some space at the top
+                // Container with border around the text
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: const Color.fromARGB(255, 206, 99, 225), width: 2),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Text(
+                    'Select your fruit type',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 81, 0, 96), // Set the font color to white
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 20),
-                // Buttons for selecting fruit
+                // Buttons for selecting fruit (unchanged)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -198,14 +212,14 @@ class _SecondPageState extends State<SecondPage> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                // Display selected fruit text
+                // Display selected fruit text (unchanged)
                 if (selectedFruit != null)
                   Text(
                     'Selected Fruit: $selectedFruit',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                const SizedBox(height: 20),
-                // Display selected or default image
+                const SizedBox(height: 50),
+                // Display selected or default image (unchanged)
                 _selectedImage != null
                     ? Image.file(
                         _selectedImage!,
@@ -214,13 +228,13 @@ class _SecondPageState extends State<SecondPage> {
                         fit: BoxFit.cover,
                       )
                     : Image.asset(
-                        'assets/default.png', // Replace with the actual path to your default image
+                        'assets/default.png', 
                         width: 150,
                         height: 150,
                         fit: BoxFit.cover,
                       ),
                 const SizedBox(height: 20),
-                // Buttons for capturing and selecting images
+                // Buttons for capturing and selecting images (unchanged)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -228,19 +242,20 @@ class _SecondPageState extends State<SecondPage> {
                       onPressed: _getImageFromCamera,
                       icon: Icon(Icons.camera),
                       iconSize: 50,
-                      color: Colors.blue,
+                      color: Colors.white,
                     ),
-                    const SizedBox(width: 20),
+                    const SizedBox(width: 50),
+                    const SizedBox(height: 50),
                     IconButton(
                       onPressed: _getImageFromGallery,
                       icon: Icon(Icons.image),
                       iconSize: 50,
-                      color: Colors.green,
+                      color: Colors.white,
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                // Button for prediction
+                const SizedBox(height: 40),
+                // Button for prediction (unchanged)
                 ElevatedButton(
                   onPressed: () {
                     if (_selectedImage != null) {
@@ -278,6 +293,7 @@ class _SecondPageState extends State<SecondPage> {
   }
 }
 
+
 class ThirdPage extends StatelessWidget {
   final File selectedImage;
 
@@ -290,24 +306,39 @@ class ThirdPage extends StatelessWidget {
         title: const Text('Prediction Page'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'This fruit is ripe',
-              style: TextStyle(fontSize: 20),
+      body: Stack(
+        children: <Widget>[
+          // Background Image for Third Page
+          Image.asset(
+            'assets/background.jpg', 
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+          ),
+           //Container(
+             //color: Colors.black.withOpacity(0.5), // Change opacity
+             //width: double.infinity,
+             //height: double.infinity,
+           //),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'This fruit is ripe',
+                  style: TextStyle(fontSize: 20),
+                ),
+                const SizedBox(height: 20),
+                Image.file(
+                  selectedImage,
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            Image.file(
-              selectedImage,
-              width: 200,
-              height: 200,
-              fit: BoxFit.cover,
-            ),
-            
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
