@@ -63,8 +63,9 @@ flutter:
   assets:
     - assets/fruits.jpg
     - assets/mk.jpg
-    - assets/camera.jpeg
+    - assets/camera.png
     - assets/background.jpg
+    - assets/default.png
 
   
 

@@ -161,7 +161,7 @@ class _SecondPageState extends State<SecondPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Add your fruit here...',
+                  'Select your fruit type',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20),
@@ -214,9 +214,9 @@ class _SecondPageState extends State<SecondPage> {
                         fit: BoxFit.cover,
                       )
                     : Image.asset(
-                        'assets/camera.jpeg', // Replace with the actual path to your default image
-                        width: 200,
-                        height: 200,
+                        'assets/default.png', // Replace with the actual path to your default image
+                        width: 150,
+                        height: 150,
                         fit: BoxFit.cover,
                       ),
                 const SizedBox(height: 20),
