@@ -141,112 +141,138 @@ class _SecondPageState extends State<SecondPage> {
       appBar: AppBar(
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Select your fruit type',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            Row(
+      body: Stack(
+        children: <Widget>[
+          // Background Image
+          Image.asset(
+            'assets/background.jpg', // Replace with the actual path to your background image
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          // Background Container with Opacity
+          Container(
+            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), // Set your desired color and opacity
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedFruit = 'Mango';
-                    });
-                  },
-                  child: Text('Mango'),
+                Text(
+                  'Add your fruit here...',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedFruit = 'Banana';
-                    });
-                  },
-                  child: Text('Banana'),
+                const SizedBox(height: 20),
+                // Buttons for selecting fruit
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedFruit = 'Mango';
+                        });
+                      },
+                      child: Text('Mango'),
+                    ),
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedFruit = 'Banana';
+                        });
+                      },
+                      child: Text('Banana'),
+                    ),
+                    const SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedFruit = 'Papaya';
+                        });
+                      },
+                      child: Text('Papaya'),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedFruit = 'Papaya';
-                    });
-                  },
-                  child: Text('Papaya'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            // Display selected fruit text
-            if (selectedFruit != null)
-              Text(
-                'Selected Fruit: $selectedFruit',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            _selectedImage != null
-                ? Image.file(
-                    _selectedImage!,
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  )
-                : Image.asset(
-                    defaultImagePath,
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
+                const SizedBox(height: 20),
+                // Display selected fruit text
+                if (selectedFruit != null)
+                  Text(
+                    'Selected Fruit: $selectedFruit',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  onPressed: _getImageFromCamera,
-                  icon: Icon(Icons.camera),
-                  iconSize: 50,
-                  color: Color.fromARGB(255, 41, 40, 40),
+                const SizedBox(height: 20),
+                // Display selected or default image
+                _selectedImage != null
+                    ? Image.file(
+                        _selectedImage!,
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.asset(
+                        'assets/camera.jpeg', // Replace with the actual path to your default image
+                        width: 200,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                const SizedBox(height: 20),
+                // Buttons for capturing and selecting images
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: _getImageFromCamera,
+                      icon: Icon(Icons.camera),
+                      iconSize: 50,
+                      color: Colors.blue,
+                    ),
+                    const SizedBox(width: 20),
+                    IconButton(
+                      onPressed: _getImageFromGallery,
+                      icon: Icon(Icons.image),
+                      iconSize: 50,
+                      color: Colors.green,
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 20),
-                IconButton(
-                  onPressed: _getImageFromGallery,
-                  icon: Icon(Icons.image),
-                  iconSize: 50,
-                  color:  Color.fromARGB(255, 41, 40, 40),
+                const SizedBox(height: 20),
+                // Button for prediction
+                ElevatedButton(
+                  onPressed: () {
+                    if (_selectedImage != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ThirdPage(selectedImage: _selectedImage!)),
+                      ).then((value) {
+                        // Call _clearSelectedImage when returning from the ThirdPage
+                        _clearSelectedImage();
+                        // Reset selected fruit when returning from the ThirdPage
+                        setState(() {
+                          selectedFruit = null;
+                        });
+                      });
+                    } else {
+                      // Handle case when no image is selected
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    onPrimary: Colors.white,
+                    padding: const EdgeInsets.all(15),
+                  ),
+                  child: const Text(
+                    'Predict',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                if (_selectedImage != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ThirdPage(selectedImage: _selectedImage!)),
-                  ).then((value) {
-                    // Call _clearSelectedImage when returning from the ThirdPage
-                    _clearSelectedImage();
-                  });
-                } else {
-                  // Handle case when no image is selected
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-                onPrimary: Colors.white,
-                padding: const EdgeInsets.all(15),
-              ),
-              child: const Text(
-                'Predict',
-                style: TextStyle(fontSize: 18),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
