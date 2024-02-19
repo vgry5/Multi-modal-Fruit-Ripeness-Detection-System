@@ -107,6 +107,7 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  static const String defaultImagePath = 'assets/camera.jpeg';
   File? _selectedImage;
 
   Future<void> _getImageFromCamera() async {
@@ -133,7 +134,7 @@ class _SecondPageState extends State<SecondPage> {
     });
   }
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -155,7 +156,12 @@ class _SecondPageState extends State<SecondPage> {
                     height: 200,
                     fit: BoxFit.cover,
                   )
-                : Container(), // Display the image if selected, otherwise an empty container
+                : Image.asset(
+                    defaultImagePath,
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
