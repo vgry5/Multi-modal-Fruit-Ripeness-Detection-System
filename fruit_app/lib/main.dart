@@ -109,6 +109,7 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
   static const String defaultImagePath = 'assets/camera.jpeg';
   File? _selectedImage;
+  String? selectedFruit;
 
   Future<void> _getImageFromCamera() async {
     final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera);
@@ -149,6 +150,44 @@ class _SecondPageState extends State<SecondPage> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedFruit = 'Mango';
+                    });
+                  },
+                  child: Text('Mango'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedFruit = 'Banana';
+                    });
+                  },
+                  child: Text('Banana'),
+                ),
+                const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedFruit = 'Papaya';
+                    });
+                  },
+                  child: Text('Papaya'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            // Display selected fruit text
+            if (selectedFruit != null)
+              Text(
+                'Selected Fruit: $selectedFruit',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             _selectedImage != null
                 ? Image.file(
                     _selectedImage!,
