@@ -8,40 +8,67 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mobile App Page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Mobile App Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to your mobile app page!',
-              style: TextStyle(fontSize: 18),
+      home: Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // Background photo
+            Image.asset(
+              'assets/DSGP backgroud.jpg', //  image path
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 20),
-            RaisedButton(
-              onPressed: () {
-                // Add your button functionality here
-              },
-              child: Text('Click me'),
+
+            // Exit button
+            Positioned(
+              top: 30,
+              left: 25,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Code to be executed when the top left button is pressed
+                  print('Exit Button pressed');
+                },
+                child: Text('Exit'),
+              ),
+            ),
+
+            // Predit Again button
+            Positioned(
+              bottom: 125,
+              left: 150,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Code to be executed when the bottom center button is pressed
+                  print('Predit Again Button pressed');
+                },
+                child: Text('Predit Again'),
+              ),
+            ),
+
+            // Extra text
+            const Positioned(
+              bottom: 400, //postioned have top,bottom,right,left,height,width
+              left: 90, //bottom:50, /n  right:25
+              child: Text(
+                'Your Ripness level is \n......................',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            const Positioned(
+              bottom: 200,
+              left: 90,
+              child: Text(
+                '............... \n...........',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),
