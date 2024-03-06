@@ -7,11 +7,11 @@ class SecondPage extends StatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SecondPageState createState() => _SecondPageState();
 }
 
 class _SecondPageState extends State<SecondPage> {
-  static String get defaultImagePath => 'assets/camera.jpeg';
   File? _selectedImage;
   String? selectedFruit;
 
@@ -53,7 +53,7 @@ class _SecondPageState extends State<SecondPage> {
           ),
           // Background Container with Opacity
           Container(
-            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
+            color: const Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
             width: double.infinity,
             height: double.infinity,
           ),
@@ -70,8 +70,8 @@ class _SecondPageState extends State<SecondPage> {
                     border: Border.all(color: const Color.fromARGB(255, 206, 99, 225), width: 2),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Text(
-                    'Select your fruit type',
+                  child: const Text(
+                    'Add your fruit image',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -90,7 +90,7 @@ class _SecondPageState extends State<SecondPage> {
                           selectedFruit = 'Mango';
                         });
                       },
-                      child: Text('Mango'),
+                      child: const Text('Mango'),
                     ),
                     const SizedBox(width: 10),
                     ElevatedButton(
@@ -99,7 +99,7 @@ class _SecondPageState extends State<SecondPage> {
                           selectedFruit = 'Banana';
                         });
                       },
-                      child: Text('Banana'),
+                      child: const Text('Banana'),
                     ),
                     const SizedBox(width: 10),
                     ElevatedButton(
@@ -108,7 +108,7 @@ class _SecondPageState extends State<SecondPage> {
                           selectedFruit = 'Papaya';
                         });
                       },
-                      child: Text('Papaya'),
+                      child: const Text('Papaya'),
                     ),
                   ],
                 ),
@@ -117,7 +117,7 @@ class _SecondPageState extends State<SecondPage> {
                 if (selectedFruit != null)
                   Text(
                     'Selected Fruit: $selectedFruit',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 const SizedBox(height: 50),
                 // Display selected or default image (unchanged)
@@ -141,7 +141,7 @@ class _SecondPageState extends State<SecondPage> {
                   children: <Widget>[
                     IconButton(
                       onPressed: _getImageFromCamera,
-                      icon: Icon(Icons.camera),
+                      icon: const Icon(Icons.camera),
                       iconSize: 50,
                       color: Colors.white,
                     ),
@@ -149,7 +149,7 @@ class _SecondPageState extends State<SecondPage> {
                     const SizedBox(height: 50),
                     IconButton(
                       onPressed: _getImageFromGallery,
-                      icon: Icon(Icons.image),
+                      icon: const Icon(Icons.image),
                       iconSize: 50,
                       color: Colors.white,
                     ),
@@ -176,8 +176,7 @@ class _SecondPageState extends State<SecondPage> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue,
                     padding: const EdgeInsets.all(15),
                   ),
                   child: const Text(

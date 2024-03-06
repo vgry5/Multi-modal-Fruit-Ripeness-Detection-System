@@ -49,8 +49,7 @@ class InstructionsPage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue,
                     padding: const EdgeInsets.all(15),
                   ),
                   child: const Text(

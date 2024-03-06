@@ -3,6 +3,7 @@ import 'instructions_page.dart';
 
 
 class HomePage extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const HomePage({Key? key});
 
   @override
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
           ),
           // Background Container with Opacity
           Container(
-            color: Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
+            color: const Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
             width: double.infinity,
             height: double.infinity,
           ),
@@ -58,8 +59,7 @@ class HomePage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue,
                     padding: const EdgeInsets.all(15),
                   ),
                   child: const Text(
