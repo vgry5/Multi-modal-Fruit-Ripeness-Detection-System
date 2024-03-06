@@ -42,14 +42,11 @@ class _SecondPageState extends State<SecondPage> {
  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-      ),
       body: Stack(
         children: <Widget>[
           // Background Image
           Image.asset(
-            'assets/background.jpg', 
+            'assets/fruit_b.jpg', 
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

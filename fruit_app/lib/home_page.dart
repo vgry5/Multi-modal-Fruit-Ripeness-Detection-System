@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'second_page.dart';
+import 'instructions_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key});
@@ -7,9 +8,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-      ),
       body: Stack(
         children: <Widget>[
           // Background Image
@@ -56,7 +54,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SecondPage()),
+                      MaterialPageRoute(builder: (context) => const InstructionsPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

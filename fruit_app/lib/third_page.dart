@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'second_page.dart';
 
 class ThirdPage extends StatelessWidget {
   final File selectedImage;
@@ -9,24 +10,15 @@ class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Prediction Page'),
-        centerTitle: true,
-      ),
       body: Stack(
         children: <Widget>[
           // Background Image for Third Page
           Image.asset(
-            'assets/background.jpg', 
+            'assets/fruit_b.jpg', 
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
-           //Container(
-             //color: Colors.black.withOpacity(0.5), // Change opacity
-             //width: double.infinity,
-             //height: double.infinity,
-           //),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +33,25 @@ class ThirdPage extends StatelessWidget {
                   width: 200,
                   height: 200,
                   fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the SecondPage when the button is clicked
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SecondPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    onPrimary: Colors.white,
+                    padding: const EdgeInsets.all(15),
+                  ),
+                  child: const Text(
+                    'Try Again',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
               ],
             ),
