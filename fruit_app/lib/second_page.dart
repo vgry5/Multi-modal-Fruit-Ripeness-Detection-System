@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'third_page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
@@ -15,13 +17,16 @@ class _SecondPageState extends State<SecondPage> {
   File? _selectedImage;
   String? selectedFruit;
 
+
   Future<void> _getImageFromCamera() async {
-    final XFile? image = await ImagePicker().pickImage(source: ImageSource.camera);
+    final XFile? image =
+        await ImagePicker().pickImage(source: ImageSource.camera);
     _handleImageSelection(image);
   }
 
   Future<void> _getImageFromGallery() async {
-    final XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final XFile? image =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     _handleImageSelection(image);
   }
 
@@ -39,27 +44,28 @@ class _SecondPageState extends State<SecondPage> {
     });
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
           // Background Image
           Image.asset(
-            'assets/fruit_b.jpg', 
+            'assets/fruit_b.jpg',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
           // Background Container with Opacity
           Container(
-            color: const Color.fromARGB(255, 90, 80, 80).withOpacity(0.5), 
+            color: const Color.fromARGB(255, 90, 80, 80).withOpacity(0.5),
             width: double.infinity,
             height: double.infinity,
           ),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start, // Align to the top of the screen
+              mainAxisAlignment:
+                  MainAxisAlignment.start, // Align to the top of the screen
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(height: 50), // Add some space at the top
@@ -67,7 +73,9 @@ class _SecondPageState extends State<SecondPage> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color.fromARGB(255, 206, 99, 225), width: 2),
+                    border: Border.all(
+                        color: const Color.fromARGB(255, 206, 99, 225),
+                        width: 2),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: const Text(
@@ -75,7 +83,8 @@ class _SecondPageState extends State<SecondPage> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 81, 0, 96), // Set the font color to white
+                      color: Color.fromARGB(
+                          255, 81, 0, 96), // Set the font color to white
                     ),
                   ),
                 ),
@@ -117,7 +126,8 @@ class _SecondPageState extends State<SecondPage> {
                 if (selectedFruit != null)
                   Text(
                     'Selected Fruit: $selectedFruit',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 const SizedBox(height: 50),
                 // Display selected or default image (unchanged)
@@ -129,7 +139,7 @@ class _SecondPageState extends State<SecondPage> {
                         fit: BoxFit.cover,
                       )
                     : Image.asset(
-                        'assets/default.png', 
+                        'assets/default.png',
                         width: 150,
                         height: 150,
                         fit: BoxFit.cover,
@@ -158,15 +168,28 @@ class _SecondPageState extends State<SecondPage> {
                 const SizedBox(height: 40),
                 // Button for prediction (unchanged)
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_selectedImage != null) {
+                      var request = http.MultipartRequest(
+                          'POST',
+                          Uri.parse(
+                              'http://192.168.1.209:5000/upload_and_predict'));
+
+                      request.files.add(await http.MultipartFile.fromPath(
+                          'image', _selectedImage!.path));
+                      var response = await request.send();
+                      var responseBody = await response.stream.bytesToString();
+                      var result = jsonDecode(responseBody);
+                      var predictedClass = result['predicted_class'];
+                      print('Predicted Class: ${result['predicted_class']}');
+
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ThirdPage(selectedImage: _selectedImage!)),
+                        MaterialPageRoute(
+                            builder: (context) => ThirdPage(selectedImage: _selectedImage!,predictedClass: predictedClass)),
                       ).then((value) {
-                        // Call _clearSelectedImage when returning from the ThirdPage
                         _clearSelectedImage();
-                        // Reset selected fruit when returning from the ThirdPage
+
                         setState(() {
                           selectedFruit = null;
                         });
@@ -176,7 +199,8 @@ class _SecondPageState extends State<SecondPage> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
                     padding: const EdgeInsets.all(15),
                   ),
                   child: const Text(
@@ -192,3 +216,4 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 }
+

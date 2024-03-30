@@ -4,8 +4,11 @@ import 'second_page.dart';
 
 class ThirdPage extends StatelessWidget {
   final File selectedImage;
+  final String predictedClass;
 
-  const ThirdPage({Key? key, required this.selectedImage}) : super(key: key);
+  const ThirdPage(
+      {Key? key, required this.selectedImage, required this.predictedClass})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class ThirdPage extends StatelessWidget {
         children: <Widget>[
           // Background Image for Third Page
           Image.asset(
-            'assets/fruit_b.jpg', 
+            'assets/fruit_b.jpg',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -23,8 +26,8 @@ class ThirdPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
-                  'This fruit is ripe',
+                Text(
+                  'This fruit is:$predictedClass',
                   style: TextStyle(fontSize: 20),
                 ),
                 const SizedBox(height: 20),
@@ -40,11 +43,12 @@ class ThirdPage extends StatelessWidget {
                     // Navigate to the SecondPage when the button is clicked
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SecondPage()),
+                      MaterialPageRoute(builder: (context) => SecondPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
                     padding: const EdgeInsets.all(15),
                   ),
                   child: const Text(
@@ -60,3 +64,4 @@ class ThirdPage extends StatelessWidget {
     );
   }
 }
+
