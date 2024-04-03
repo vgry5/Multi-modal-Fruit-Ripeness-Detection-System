@@ -6,7 +6,7 @@ import cv2
 
 app = Flask(__name__)
 
-# Load your model
+#Loading the h5 model
 model = tf.keras.models.load_model('C:/Users/admin/Datasets/Multi-modal-Fruit-Ripeness-Detection-System/EfficientnetBo.h5')
   
 def preprocess_image(image_path):
@@ -16,6 +16,7 @@ def preprocess_image(image_path):
     return image
 
 
+#Defining the route
 @app.route('/upload_and_predict', methods=['POST'])
 def upload_and_predict():
     if request.method == 'POST':
