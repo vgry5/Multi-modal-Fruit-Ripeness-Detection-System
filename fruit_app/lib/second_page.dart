@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'third_page.dart';
+// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -88,47 +89,6 @@ class _SecondPageState extends State<SecondPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                // Buttons for selecting fruit (unchanged)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedFruit = 'Mango';
-                        });
-                      },
-                      child: const Text('Mango'),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedFruit = 'Banana';
-                        });
-                      },
-                      child: const Text('Banana'),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedFruit = 'Papaya';
-                        });
-                      },
-                      child: const Text('Papaya'),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                // Display selected fruit text (unchanged)
-                if (selectedFruit != null)
-                  Text(
-                    'Selected Fruit: $selectedFruit',
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
                 const SizedBox(height: 50),
                 // Display selected or default image (unchanged)
                 _selectedImage != null
@@ -183,6 +143,7 @@ class _SecondPageState extends State<SecondPage> {
                       var predictedClass = result['predicted_class'];
                       print('Predicted Class: ${result['predicted_class']}');
 
+                      // ignore: use_build_context_synchronously
                       Navigator.push(
                         context,
                         MaterialPageRoute(
