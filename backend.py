@@ -1,28 +1,31 @@
 import os
 from flask import Flask, request, jsonify
 import tensorflow as tf
+from tensorflow import keras
+from keras.preprocessing import image
 import numpy as np
-import cv2
 
 app = Flask(__name__)
 
-#Loading the h5 model
-model = tf.keras.models.load_model('C:/Users/admin/Datasets/Multi-modal-Fruit-Ripeness-Detection-System/EfficientnetBo.h5')
+# Load your model
+model = tf.keras.models.load_model('\EfficientnetBo.h5')
+
   
 def preprocess_image(image_path):
-    image = cv2.imread(image_path)
-    image = cv2.resize(image, (224, 224))  
-    image = image / 255.0  
-    return image
+    IMAGE_SIZE = (224, 224)
+    img = image.load_img(image_path, target_size=IMAGE_SIZE)
+    img_array = image.img_to_array(img)
+    img_array /= 255.0
+    img_array = np.expand_dims(img_array, axis=0)
+    return img_array
 
 
-#Defining the route
 @app.route('/upload_and_predict', methods=['POST'])
 def upload_and_predict():
     if request.method == 'POST':
         
         if 'image' not in request.files:
-            return jsonify({'error': 'No image file found'})
+            return jsonify({'error': 'No image file found'}), 400
         
         image_file = request.files['image']
         
@@ -34,12 +37,16 @@ def upload_and_predict():
         processed_image = preprocess_image(temp_image_path)
         
     
-        predictions = model.predict(np.expand_dims(processed_image, axis=0))
+        predictions = model.predict(processed_image)
         
-   
-        labels = {'0': 'Overripe', '1': 'Ripe', '2': 'Unripe'} 
-        predicted_class_index = np.argmax(predictions)
-        predicted_class = labels[str(predicted_class_index)]
+        class_names = {
+            0: 'Over Ripe',
+            1: 'Ripe',
+            2: 'Unripe'
+        }
+        # class_names = ['Over ripe', 'Ripe', 'Unripe']
+        predicted_class_index = np.argmax(predictions,axis=1)
+        predicted_class = class_names[predicted_class_index[0]]
         
         
         os.remove(temp_image_path)
