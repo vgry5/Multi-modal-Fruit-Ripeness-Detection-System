@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="15cff6b9-904d-4359-8560-59db0e0e5425" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB0.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB0.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB3.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB5.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EfficientnetB6.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/EfficientnetB6.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/efficientnetB2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/efficientnetB2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/efficientnetB7.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/efficientnetB7.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2dFw3l8x08cbpFHCKBaicqekItU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Yenuka",
+    "last_opened_file_path": "/Users/admin/Downloads/Multi-modal-Fruit-Ripeness-Detection-System",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15cff6b9-904d-4359-8560-59db0e0e5425" name="Changes" comment="" />
+      <created>1709616938903</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709616938903</updated>
+      <workItem from="1709616940015" duration="103000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
