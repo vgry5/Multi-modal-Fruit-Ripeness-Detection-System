@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load your model
-model = tf.keras.models.load_model('D:\Second Year\Courseworks\Final DSGP\EfficientnetBo.h5')
+model = tf.keras.models.load_model('EfficientnetBo.h5')
 
   
 def preprocess_image(image_path):
