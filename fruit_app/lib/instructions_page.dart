@@ -17,7 +17,7 @@ class InstructionsPage extends StatelessWidget {
           ),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 const SizedBox(height: 60),
                 ElevatedButton(
@@ -37,6 +37,7 @@ class InstructionsPage extends StatelessWidget {
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
+                const SizedBox(height: 100),
               ],
             ),
           ),

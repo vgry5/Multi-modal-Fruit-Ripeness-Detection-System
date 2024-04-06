@@ -69,26 +69,7 @@ class _SecondPageState extends State<SecondPage> {
                   MainAxisAlignment.start, // Align to the top of the screen
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(height: 50), // Add some space at the top
-                // Container with border around the text
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 206, 99, 225),
-                        width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: const Text(
-                    'Add your fruit image',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(
-                          255, 81, 0, 96), // Set the font color to white
-                    ),
-                  ),
-                ),
+                const SizedBox(height: 80), // Add some space at the top
                 const SizedBox(height: 50),
                 // Display selected or default image (unchanged)
                 _selectedImage != null
@@ -100,11 +81,11 @@ class _SecondPageState extends State<SecondPage> {
                       )
                     : Image.asset(
                         'assets/default.png',
-                        width: 150,
-                        height: 150,
+                        width: 250,
+                        height: 250,
                         fit: BoxFit.cover,
                       ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 50),
                 // Buttons for capturing and selecting images (unchanged)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +93,7 @@ class _SecondPageState extends State<SecondPage> {
                     IconButton(
                       onPressed: _getImageFromCamera,
                       icon: const Icon(Icons.camera),
-                      iconSize: 50,
+                      iconSize:55,
                       color: Colors.white,
                     ),
                     const SizedBox(width: 50),
@@ -120,7 +101,7 @@ class _SecondPageState extends State<SecondPage> {
                     IconButton(
                       onPressed: _getImageFromGallery,
                       icon: const Icon(Icons.image),
-                      iconSize: 50,
+                      iconSize: 55,
                       color: Colors.white,
                     ),
                   ],
@@ -166,7 +147,7 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                   child: const Text(
                     'Predict',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               ],

@@ -6,12 +6,32 @@ class ThirdPage extends StatelessWidget {
   final File selectedImage;
   final String predictedClass;
 
-  const ThirdPage(
-      {Key? key, required this.selectedImage, required this.predictedClass})
-      : super(key: key);
+  const ThirdPage({
+    Key? key,
+    required this.selectedImage,
+    required this.predictedClass,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Color textColor;
+
+    // Set text color based on the predicted class
+    switch (predictedClass) {
+      case 'Ripe':
+        textColor = const Color.fromARGB(255, 255, 230, 3);
+        break;
+      case 'Over Ripe':
+        textColor = const Color.fromARGB(255, 168, 64, 26);
+        break;
+      case 'Unripe':
+        textColor = const Color.fromARGB(255, 1, 171, 6);
+        break;
+      default:
+        textColor = const Color.fromARGB(255, 134, 7, 7);
+        break;
+    }
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -27,14 +47,24 @@ class ThirdPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'This fruit is:$predictedClass',
-                  style: TextStyle(fontSize: 20),
+                  'The fruit is:',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black, // Black color for this part
+                  ),
+                ),
+                Text(
+                  predictedClass,
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: textColor, // Color determined by predicted class
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Image.file(
                   selectedImage,
-                  width: 200,
-                  height: 200,
+                  width: 250,
+                  height: 250,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
@@ -64,4 +94,3 @@ class ThirdPage extends StatelessWidget {
     );
   }
 }
-
