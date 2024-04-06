@@ -107,7 +107,7 @@ class _SecondPageState extends State<SecondPage> {
                   ],
                 ),
                 const SizedBox(height: 40),
-                // Button for prediction (unchanged)
+                // Button for prediction
                 ElevatedButton(
                   onPressed: () async {
                     if (_selectedImage != null) {
