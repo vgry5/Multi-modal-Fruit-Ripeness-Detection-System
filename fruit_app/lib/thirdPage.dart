@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'second_page.dart';
+import 'secondPage.dart';
 
 class ThirdPage extends StatelessWidget {
   final File selectedImage;
