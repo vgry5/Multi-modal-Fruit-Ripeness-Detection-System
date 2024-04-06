@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'instructions_page.dart';
+import 'instructionsPage.dart';
 
 
 class HomePage extends StatelessWidget {
