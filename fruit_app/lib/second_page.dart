@@ -114,7 +114,7 @@ class _SecondPageState extends State<SecondPage> {
                       var request = http.MultipartRequest(
                           'POST',
                           Uri.parse(
-                              'http://192.168.1.209:5000/upload_and_predict'));
+                              'http://192.168.28.190:5000/upload_and_predict'));
 
                       request.files.add(await http.MultipartFile.fromPath(
                           'image', _selectedImage!.path));

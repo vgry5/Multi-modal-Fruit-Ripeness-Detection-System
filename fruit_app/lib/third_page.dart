@@ -19,16 +19,16 @@ class ThirdPage extends StatelessWidget {
     // Set text color based on the predicted class
     switch (predictedClass) {
       case 'Ripe':
-        textColor = const Color.fromARGB(255, 255, 230, 3);
+        textColor = Color.fromARGB(255, 125, 61, 4);
         break;
       case 'Over Ripe':
-        textColor = const Color.fromARGB(255, 168, 64, 26);
+        textColor = Color.fromARGB(255, 134, 25, 31);
         break;
       case 'Unripe':
         textColor = const Color.fromARGB(255, 1, 171, 6);
         break;
       default:
-        textColor = const Color.fromARGB(255, 134, 7, 7);
+        textColor = Color.fromARGB(255, 0, 0, 0);
         break;
     }
 
