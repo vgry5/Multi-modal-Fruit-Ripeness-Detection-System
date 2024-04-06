@@ -50,7 +50,7 @@ class ThirdPage extends StatelessWidget {
                   'The fruit is:',
                   style: TextStyle(
                     fontSize: 25,
-                    color: Colors.black, // Black color for this part
+                    color: Colors.black, 
                   ),
                 ),
                 Text(
