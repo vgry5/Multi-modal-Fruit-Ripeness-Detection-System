@@ -24,7 +24,6 @@
 - [Model Performance](#model-performance)
 - [How It Works](#how-it-works)
 - [Project Structure](#project-structure)
-- [Results & Benchmarks](#results--benchmarks)
 - [Limitations](#limitations)
 - [Future Enhancements](#future-enhancements)
 - [Team](#team)
@@ -230,19 +229,6 @@ Multi-modal-Fruit-Ripeness-Detection-System/
 │
 └── README.md
 ```
-
----
-
-## Results & Benchmarks
-
-| Benchmark | Existing System | This System |
-|---|---|---|
-| Ripeness Classification (CNN, Mango) | ~94% | **96%** (EfficientNetB0) |
-| Ripeness Classification (Random Forest, Papaya) | ~94.75% | **96%** (EfficientNetB0) |
-| Number of fruits supported | 1 | **3** |
-| Mobile application available | ❌ | ✅ |
-| Inference time | — | ~2 seconds |
-
 ---
 
 ## Limitations
