@@ -39,8 +39,6 @@ The **Multi-modal Fruit Ripeness Detection System** addresses a real-world probl
 
 This system unifies ripeness detection for three tropical fruits — **Banana**, **Mango**, and **Papaya** — into a single mobile application. Users simply select the fruit type, capture or upload a photo, and receive an instant ripeness classification: **Unripe**, **Ripe**, or **Over Ripe**.
 
-Built as a BSc (Hons) Artificial Intelligence and Data Science final year project at the **Informatics Institute of Technology** in collaboration with **Robert Gordon University Aberdeen**.
-
 ---
 
 ## Key Features
